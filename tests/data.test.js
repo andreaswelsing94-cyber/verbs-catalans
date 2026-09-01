@@ -1,0 +1,5 @@
+import test from'node:test';import assert from'node:assert/strict';import fs from'node:fs';const data=JSON.parse(fs.readFileSync(new URL('../data/verbs.json',import.meta.url)));
+test('metadades i 100 verbs únics',()=>{assert.equal(data.verbCount,100);assert.equal(new Set(data.verbs.map(v=>v.id)).size,100);assert.equal(new Set(data.verbs.map(v=>v.infinitive)).size,100)});
+test('tots els verbs tenen traducció orientativa',()=>{for(const v of data.verbs)assert.ok(v.translationEs?.trim(),v.infinitive)});
+test('formes essencials verificades',()=>{const v=id=>data.verbs.find(x=>x.id===id);assert.ok(v('ser').forms.present['1s'].includes('soc'));assert.ok(v('venir').forms.present['3p'].includes('venen'));assert.ok(v('fer').forms.present['1s'].includes('faig'));assert.ok(v('anar').forms.periphrasticPast['1s'].includes('vaig anar'))});
+test('compostos complets i imperatiu sense 1s',()=>{for(const v of data.verbs){for(const forms of Object.values(v.forms.perfect||{}))for(const f of forms)assert.match(f,/\s/);assert.equal(v.forms.imperative?.['1s'],undefined)}});

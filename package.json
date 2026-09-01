@@ -1,0 +1,1 @@
+{"name":"verbs-catalans","version":"1.0.0","private":true,"type":"module","scripts":{"generate:data":"python3 scripts/generate_data.py","test":"node --test","validate:data":"python3 scripts/generate_data.py --check"},"license":"GPL-2.0-or-later"}
