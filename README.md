@@ -4,20 +4,20 @@ PWA estática, gratuita y sin registro para aprender y practicar conjugaciones c
 
 ## Estado real de los datos
 
-- **100 verbos** (53 clasificados como regulares y 47 como irregulares).
-- **6.306 celdas lingüísticas** y **8.156 formas o variantes almacenadas**. El segundo recuento incluye variantes normativas y construcciones completas compuestas/perifrásticas.
+- **200 verbos** (124 clasificados como regulares y 76 como irregulares).
+- **18.383 celdas lingüísticas** y **21.692 formas o variantes almacenadas**. El segundo recuento incluye variantes normativas y construcciones completas compuestas/perifrásticas.
 - 15 tiempos practicables: presente, imperfecto, pasado perifrástico, pasado simple, perfecto, pluscuamperfecto, futuro y futuro perfecto de indicativo; condicional simple y compuesto; presente, imperfecto, perfecto y pluscuamperfecto de subjuntivo; e imperativo afirmativo.
 - Formas no personales disponibles según el corpus: infinitivo, gerundio, participio y construcciones perfectas.
 
-El selector de 250/500/1.000 se muestra para que la interfaz y la configuración permanezcan preparadas para futuras ampliaciones, pero nunca finge que existen más datos: la lista informa siempre del número real disponible.
+El selector permite trabajar con los 100 primeros lemas o con el corpus completo de 200.
 
 ## Fuente lingüística y licencia
 
 Las formas simples y sus variantes proceden de **Apertium Catalan 2.12.0**, paquete morfológico mantenido por el proyecto Apertium: <https://github.com/apertium/apertium-cat>. El repositorio declara **GNU GPL v2 o posterior** en su archivo `COPYING`; por compatibilidad, este proyecto completo se distribuye bajo **GPL-2.0-or-later** y conserva la licencia en `LICENSE`. Autores y contribuciones de la fuente pueden consultarse en el archivo `AUTHORS` del repositorio original.
 
-El script `scripts/generate_data.py` extrae las formas desde `apertium-cat.cat.metadix`; no conjuga por reglas inventadas. Las construcciones compuestas se ensamblan de forma reproducible con las formas de `haver` y el participio extraídos de la misma fuente; el pasado perifrástico usa las formas de `anar` y el infinitivo del mismo corpus. Los textos gramaticales y ejemplos breves son originales de este proyecto, revisados contra la descripción normativa de la conjugación del Institut d’Estudis Catalans: <https://giec.iec.cat/conjugacio/introduccio>. No se han copiado tablas del IEC.
+El script `scripts/generate_data.py` extrae las formas simples y los participios desde `apertium-cat.cat.metadix`. Las construcciones compuestas se ensamblan de forma reproducible con una tabla explícita del auxiliar personal `haver`; así se evita confundirlo con la construcción existencial `haver-hi`. El pasado perifrástico usa las formas auxiliares de `anar` y el infinitivo del mismo corpus. Los textos gramaticales y ejemplos breves son originales de este proyecto, revisados contra la descripción normativa de la conjugación del Institut d’Estudis Catalans: <https://giec.iec.cat/conjugacio/introduccio>. No se han copiado tablas del IEC.
 
-La posición de frecuencia es **orientativa y pedagógica**, no el resultado de un corpus estadístico redistribuido. La lista de 100 lemas comunes se mantiene explícitamente en el generador; Apertium aporta y verifica la morfología. No se incluyen traducciones al español de los lemas porque no se localizó una fuente bilingüe con el mismo nivel de trazabilidad y una licencia integrada en este proceso.
+La posición de frecuencia es **orientativa y pedagógica**, no el resultado de un corpus estadístico redistribuido. La lista de 200 lemas comunes se mantiene explícitamente en el generador; Apertium aporta y verifica la morfología. Las traducciones al español son ayudas orientativas mantenidas por el proyecto, no un diccionario bilingüe exhaustivo.
 
 ## Funciones
 
@@ -28,6 +28,7 @@ La posición de frecuencia es **orientativa y pedagógica**, no el resultado de 
 - Resumen de sesión, lista de errores y enlaces a la tabla y tiempo exactos.
 - Diccionario con búsqueda sin acentos, filtros, favoritos, fichas y navegación anterior/siguiente.
 - Gramática breve en catalán y accesos directos a la práctica de cada tiempo.
+- Módulo progresivo de pronoms febles con teoría, 280 actividades, práctica temática o mixta, explicaciones y repetición espaciada.
 - Configuración completa y progreso local versionado, con migración de la versión 1 a la 2.
 - Diseño mobile-first accesible, teclado, foco visible, contraste y modo claro/oscuro del sistema.
 - Manifest, iconos 192/512, service worker con actualización de caché y fallback offline.
@@ -109,14 +110,14 @@ No subas `work/`: no es necesaria para ejecutar la aplicación y contiene el rep
 
 ## Instalar en Android y funcionamiento sin conexión
 
-Abre la dirección de GitHub Pages en Chrome para Android, espera la primera carga y usa **⋮ → Añadir a pantalla de inicio → Instalar**. La aplicación se abre sin la interfaz del navegador. El service worker guarda la interfaz, los iconos y toda la base lingüística. Después de esa primera carga puede funcionar sin red. Al volver a abrirla con conexión, la versión `verbs-catalans-v1` reemplaza cachés anteriores cuando cambia el identificador de caché en `sw.js`.
+Abre la dirección de GitHub Pages en Chrome para Android, espera la primera carga y usa **⋮ → Añadir a pantalla de inicio → Instalar**. La aplicación se abre sin la interfaz del navegador. El service worker guarda la interfaz, los iconos y toda la base lingüística. Después de esa primera carga puede funcionar sin red. Al volver a abrirla con conexión, la versión `verbs-catalans-v8` reemplaza cachés anteriores cuando cambia el identificador de caché en `sw.js`.
 
 El progreso se guarda exclusivamente en `localStorage` del navegador, bajo la clave `verbs-catalans-progress`. No sale del dispositivo. Borrar los datos del sitio o desinstalar y limpiar Chrome puede eliminarlo.
 
-## Limitaciones y ampliación hasta 1.000
+## Limitaciones y futuras ampliaciones
 
-- La aplicación incluye 100 verbos, no 1.000. Alcanzar 250/500/1.000 exige elegir y documentar una lista de frecuencia catalana legalmente redistribuible y revisar la clasificación regular/irregular de cada nuevo paradigma.
-- Apertium es una fuente morfológica abierta y amplia, pero no sustituye una revisión editorial individual del IEC. Antes de una publicación educativa de alta responsabilidad conviene revisar las 100 fichas con un lingüista y registrar la versión/commit exactos del corpus.
+- La aplicación incluye 200 verbos con un orden de frecuencia orientativo. Una ampliación posterior exige elegir y documentar una lista de frecuencia catalana legalmente redistribuible y revisar la clasificación regular/irregular de cada nuevo paradigma.
+- Apertium es una fuente morfológica abierta y amplia, pero no sustituye una revisión editorial individual del IEC. Antes de una publicación educativa de alta responsabilidad conviene revisar las 200 fichas con un lingüista y registrar la versión/commit exactos del corpus.
 - Algunas variantes territoriales presentes en Apertium pueden aparecer como respuestas aceptadas. La interfaz no etiqueta aún cada variedad.
 - La PWA no incorpora sonido, sincronización entre dispositivos, exportación de progreso ni traducciones de lemas.
 - La prueba automática verifica la estructura y formas esenciales, pero la instalación real depende de HTTPS (GitHub Pages lo ofrece) y debe confirmarse en Chrome/Android.

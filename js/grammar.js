@@ -3,7 +3,7 @@ export const grammarSections=[
 ['conjugacions','Les tres conjugacions',`La primera conjugació acaba en <b>-ar</b> (parlar); la segona, en <b>-er</b> o <b>-re</b> (témer, perdre); i la tercera, en <b>-ir</b> (dormir). Alguns verbs de la tercera són incoatius: serveixo, serveixes…`],
 ['modes','Modes verbals',`L’<b>indicatiu</b> presenta fets; el <b>subjuntiu</b> expressa sovint desig, dubte o subordinació; el <b>condicional</b>, una situació hipotètica; i l’<b>imperatiu</b>, ordres o instruccions.`],
 ['indicatiu','Temps de l’indicatiu',`El present situa l’acció ara o com a habitual; l’imperfet descriu accions habituals o en curs en el passat; els passats presenten accions acabades; el futur situa l’acció després del moment de parla.`],
-['subjuntiu','Temps del subjuntiu',`S’utilitza en contextos com <i>Vull que vinguis</i> o <i>Potser sigui tard</i>. Té present, imperfet i els temps compostos corresponents.`],
+['subjuntiu','Temps del subjuntiu',`S’utilitza en contextos com <i>Vull que vinguis</i> o <i>És possible que sigui tard</i>. Té present, imperfet i els temps compostos corresponents.`],
 ['conditional','Condicional',`Es forma, en general, amb l’infinitiu i les terminacions -ia, -ies, -ia, -íem, -íeu, -ien: <i>Ho faria demà</i> (Lo haría mañana).`],
 ['imperative','Imperatiu',`Serveix per donar ordres o consells: <i>Vine aviat!</i> (¡Ven pronto!). No té primera persona del singular. L’imperatiu negatiu es forma amb el subjuntiu: <i>No vinguis</i>.`],
 ['nonpersonal','Formes no personals',`L’infinitiu anomena el verb; el gerundi expressa una acció en desenvolupament; i el participi intervé en els temps compostos: <i>parlar, parlant, parlat</i>.`],
